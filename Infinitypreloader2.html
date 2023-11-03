@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Preloader</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(0, 0, 26);
+            animation: animatecolor 5s linear infinite;
+        }
+        .container{
+            display: flex;
+        }
+        .circle{
+            position: relative;
+            margin: 0 -6.9px;
+            height: 150px;
+            width: 150px;
+        }
+        .circle span{
+            position: absolute;
+            /* top: 0;
+            left: 0; */
+            height: 100%;
+            width: 100%;
+            transform: rotate(calc(1deg * var(--i))) ;
+        }
+        .circle span::before{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: calc(50% - 7.5px);
+            height: 15px;
+            width: 15px;
+            transform: scale(1);
+            border-radius: 50%;
+            background-color: rgb(241, 104, 241);
+            box-shadow: 0 0 5px rgb(241, 104, 241),
+            0 0 20px rgb(241, 104, 241);
+            animation: animate 2.1s linear infinite;
+            animation-delay: calc(0.003s*var(--i));
+        }
+        @keyframes animate{
+            0%{
+                transform: scale(1);
+            }
+            50%,100%{
+                transform: scale(0.1);
+            }
+        }
+        @keyframes animatecolor{
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+        .circle:nth-child(2){
+            transform: rotate(180deg);
+        }
+        .circle:nth-child(2) span::before{
+            animation-delay: calc(-0.003s*var(--i));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <script>
+        var circle = document.querySelector(".circle");
+        var circle2 = document.querySelector(".circle:nth-child(2)");
+
+        for(let i=0;i<=360;i++){
+            const span = document.createElement("span");
+            span.style = `--i:${i}`;
+            circle.appendChild(span);
+        }
+        for(let i=0;i<=360;i++){
+            const span = document.createElement("span");
+            span.style = `--i:${i}`;
+            circle2.appendChild(span);
+        }
+    </script>
+    <script>
+       
+    </script>
+</body>
+</html>

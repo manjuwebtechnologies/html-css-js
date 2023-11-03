@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        :root{
+        --blue: #77cce9;
+        --red: #d54a0f;
+        --green: #36f96d;
+        }
+        .clip{
+            position: absolute;
+            clip-path: circle(0% at 0 0);
+            height: 100vh;
+            width: 100%;
+            transition: 2s linear;
+        }
+        .clip.red{
+            background-color: var(--red);
+           
+            clip-path: circle(150% at 0 0);
+        }
+        .clip.green{
+            background-color: #36f96d;
+           
+            clip-path: circle(150% at 0 0);
+        }
+        .clip.blue{
+            background-color: #77cce9;
+           
+            clip-path: circle(150% at 0 0);
+        }
+        .btn{
+            position: absolute;
+            bottom: 50px;
+            padding: 10px 30px ;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 20;
+            clip-path: circle(30% at 0 0);
+            transition: .5s linear;
+        }
+        .btn:hover{
+            clip-path: circle(150% at 0 0);
+        }
+        #red{
+            left: 40%;
+            background-color: #d54a0f;
+        }
+        #blue{
+            left: 50%;
+            background-color: #77cce9;
+        }
+        #green{
+            left: 60%;
+            background-color: #36f96d;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="clip" id="red-bx"></div>
+    <div class="clip" id="blue-bx"></div>
+    <div class="clip" id="green-bx"></div>
+    <button class="btn" id="red">Red</button>
+    <button class="btn" id="blue">Blue</button>
+    <button class="btn" id="green">Green</button>
+
+    <script>
+        var red = document.getElementById("red");
+        var cp = document.querySelectorAll(".clip");
+        var blue = document.getElementById("blue");
+        var green = document.getElementById("green");
+        var cr = document.getElementById("red-bx");
+        var cb = document.getElementById("blue-bx");
+        var cg = document.getElementById("green-bx");
+
+        red.addEventListener("click", () =>{
+            cb.classList.remove("blue");
+            cg.classList.remove("green");
+            cp.style = "z-index:-1";
+            cr.classList.add("red");
+            cr.style = "z-index:10";
+
+        })
+        blue.addEventListener("click", () =>{
+            cr.classList.remove("red");
+            cg.classList.remove("green");
+            cp.style = "z-index:-1";
+            cb.style = "z-index:10";
+            cb.classList.add("blue");
+        })
+        green.addEventListener("click", () =>{
+            cb.classList.remove("blue");
+            cr.classList.remove("red");
+            cp.style = "z-index:-1";
+            cg.style = "z-index:10";
+            cg.classList.add("green");
+        })
+    </script>
+</body>
+</html>

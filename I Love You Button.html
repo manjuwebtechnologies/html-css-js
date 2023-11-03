@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Button</title>
+</head>
+
+<style>
+
+    *{
+        transition: .2s ease-in-out;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button{
+        padding: 10px 30px ;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 0 50px 2px rgb(60,59,59);
+    }
+    .button{
+        width: 190px;
+    }
+    .yes-button{
+        background-color: #f3a8ebe6;
+        color: white;
+        margin-right: 10px;
+    }
+    .no-button{
+        background-color: #8ec0ecdf;
+        color: white;
+    }
+    .box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 500px;
+        height: 300px;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 0 100px 20px gray;
+        background: linear-gradient(60deg,rgba(221,145,224,0.973),rgba(46,189,214,0.923));
+    }
+    .box h1{
+        background: linear-gradient(to right, #f32170,#ff6b08,#cf23cf,#eedd44);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        margin-top: -30px;
+        margin-bottom: 60px;
+    }
+
+</style>
+<body>
+    <div class="box" id="box">
+        <h1 id="content">Do You Love Me !!</h1>
+        <div class="button">
+            <button type="button" class="yes-button" id="yesButton">Yes</button>
+            <button type="button" class="no-button" id="noButton">No</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        const noButton = document.getElementById("noButton");
+        const yesButton = document.getElementById("yesButton");
+        var content  = document.getElementById("content");
+        const box = document.getElementById("box");
+
+        const randomPosition = () =>{
+            const boxWidth = box.clientWidth;
+            const boxHeight = box.clientHeight;
+            const buttonWidth = noButton.clientWidth;
+            const buttonHeight = noButton.clientHeight;
+            const maxX = boxWidth - buttonWidth;
+            const maxY= boxHeight - buttonHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            return {x:randomX, y:randomY};
+
+        }
+
+        const setPosition = () =>{
+            const {x,y} = randomPosition();
+            noButton.style.position = 'absolute';
+            noButton.style.left = '${x}px';
+            noButton.style.top = '${y}px';
+        }
+
+        noButton.addEventListener('mousemove',()=>{
+            setPosition();
+        });
+        yesButton.addEventListener('click',()=>{
+            content.innerHTML = 'I Love You Too !!'} );
+        noButton.addEventListener('click',()=>{
+            content.innerHTML = 'My Bad !!'} );
+
+    </script>
+</body>
+</html>

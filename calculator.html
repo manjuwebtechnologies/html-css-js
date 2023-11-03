@@ -1,0 +1,51 @@
+
+<html> 
+    <head> 
+        <style>
+        button{height:40px;
+        width:40px;
+        border-radius:20px;
+        margin:10px 0 0 20px;}
+        .btn{border: solid red 6px;
+        padding:0 0 10px 0
+        }
+        .frm{border:solid blue 5px;
+        padding:10px 0 0 0;
+        }
+        </style>
+        <title>HTML Calculator</title> 
+    </head> 
+    
+    <body bgcolor= "white" text= "black" align="center">
+        <div class="frm">
+            <form name="calculator"             method="post" id="btn">
+        
+                <label for="txt">Enter     number</label>
+        <input id="txt" type="textfield" name="ans" value="">
+        
+                
+        
+        
+        </form>
+        </div>
+        <div class="btn">
+        <button value="1" onclick="document.calculator.ans.value+='1'">1</button>
+        <button value="2" onclick="document.calculator.ans.value+='2'">2</button>
+        <button value="3" onclick="document.calculator.ans.value+='3'">3</button><br>
+        <button value="4" onclick="document.calculator.ans.value+='4'">4</button>
+        <button value="5" onclick="document.calculator.ans.value+='5'">5</button>
+        <button value="6" onclick="document.calculator.ans.value+='6'">6</button><br>
+        <button value="7" onclick="document.calculator.ans.value+='7'">7</button>
+        <button value="8" onclick="document.calculator.ans.value+='8'">8</button>
+        <button value="9" onclick="document.calculator.ans.value+='9'">9</button><br>
+        <button value="0" onclick="document.calculator.ans.value+='0'">0</button><br><br>
+        <button value="+" onclick="document.calculator.ans.value+='+'">+</button>
+        <button value="-" onclick="document.calculator.ans.value+='-'">-</button>
+        <button value="*" onclick="document.calculator.ans.value+='*'">*</button>
+        <button value="/" onclick="document.calculator.ans.value+='/'">/</button><br>
+        <button value="=" type="button" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)">=</button>
+     <button type="reset" value="Reset" form="btn">CE</button>
+        </div>
+    </body> 
+</html>
+
