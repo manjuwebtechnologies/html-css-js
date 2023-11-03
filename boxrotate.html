@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Rotate</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(31, 0, 31);
+        }
+        .box{
+            height: 400px;
+            position: relative;
+            width: 400px;
+            border-radius: 20px;
+            background:repeating-conic-gradient(from var(--a),red 0%,red 5%,transparent 5%,transparent 40%,red 50%);
+            animation: animate 5s linear infinite;
+            
+        }
+        .box::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background:repeating-conic-gradient(from var(--a),blue 0%,blue 5%,transparent 5%,transparent 40%,blue 50%);
+            animation: animate 5s linear infinite;
+            animation-delay: -1s ;        
+        }
+        .box::after{
+            content: '';
+            inset: 8px;
+            border-radius: 10px;
+            position: absolute;
+            background-color: rgb(50, 2, 50);
+            border:10px solid rgb(31, 0, 31);
+        }
+        @property --a{
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+
+        @keyframes animate{
+            0%{
+                --a:0deg;
+            }
+            100%{
+                --a:360deg
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Rotate Preloader</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(19, 0, 19);
+        }
+        .circle{
+            position: relative;
+            height: 200px ;
+            width: 200px;
+            /* background-color: white; */
+        }
+        .circle span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(calc(18deg * var(--i)));
+            /* animation: animate 8s linear infinite; */
+
+        }
+        .circle span::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            background-color: violet;
+            box-shadow: 0 0 10px violet,
+            0 0 20px violet,
+            0 0 40px violet,
+            0 0 60px violet,
+            0 0 80px violet,
+            0 0 100px violet;
+            transform: scale(1);
+            animation: animate 2s linear infinite;
+            animation-delay: calc(0.1s * var(--i));
+        }
+        @keyframes animate{
+            100%{
+                transform: scale(0.1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="circle" id="circle"></div>
+    </div>
+    <script>
+        var circle = document.getElementById("circle");
+        for (let i = 0; i <= 20; i++) {
+        const span = document.createElement('span');
+        span.style = `--i:${i};`;
+        circle.appendChild(span);
+    }
+    </script>
+
+
+</body>
+</html>

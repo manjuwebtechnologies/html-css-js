@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            /* justify-content: space-between; */
+        }
+        li{
+            padding: 0 10px;
+            color: rgb(0, 42, 42);
+            font-size: 50px;
+            font-weight: 600;
+            text-shadow: 8px 5px 3px rgb(24, 138, 132);
+            animation: glow 3s linear infinite;
+        }
+        li:nth-child(1){
+            animation-delay:0;
+        }
+        li:nth-child(2){
+            animation-delay: 1000ms;
+        }
+        li:nth-child(3){
+            animation-delay:1500ms;
+        }
+        li:nth-child(4){
+            animation-delay:2000ms;
+        }
+        li:nth-child(5){
+            animation-delay:2500ms;
+        }
+        @keyframes glow{
+            50%{
+                text-shadow: -8px -5px 3px rgb(0, 0, 0);
+            }
+            100%{
+                text-shadow: 8px 5px 3px rgb(24, 138, 132);
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>H</li>
+        <li>A</li>
+        <li>Y</li>
+    </ul>
+</body>
+</html>

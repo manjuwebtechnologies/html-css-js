@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background:rgb(0, 0, 26);
+            animation: animatecolor 8s linear infinite;
+        }
+        .container{
+            display: flex;
+        }
+        .circle{
+            position: relative;
+            width: 150px ;
+            height: 150px;
+            margin: 0 -7.5px;
+        }
+        .circle span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(calc(18deg * var(--i)));
+        }
+        .circle span::before{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: calc(50% - 7.5px);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: rgb(241, 104, 241);
+            box-shadow: 0 0 10px rgb(241, 104, 241),
+            0 0 20px rgb(241, 104, 241),
+            0 0 40px rgb(241, 104, 241),
+            0 0 60px rgb(241, 104, 241),
+            0 0 100px rgb(241, 104, 241),
+            0 0 200px rgb(241, 104, 241);
+            transform: scale(0.1);
+            animation: animate 4s linear infinite;
+            animation-delay: calc(0.1s*var(--i));
+        }
+        @keyframes animate{
+            0%{
+                transform: scale(1);
+            }
+            50%,100%{
+                transform: scale(0.1);
+            }
+        }
+        @keyframes animatecolor{
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+        .circle:nth-child(2){
+            transform: rotate(180deg);
+        }
+        .circle:nth-child(2) span::before{
+            animation-delay: calc(-0.1s*var(--i));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle" id="circle">
+            
+        </div>
+        <div class="circle" id="circle2">
+            
+        </div>
+    </div>
+
+    <script>
+        var circle = document.getElementById("circle");
+        var circle2 = document.getElementById("circle2");
+        for (let i = 0; i <= 20; i++) {
+        const span = document.createElement('span');
+        span.style = `--i:${i};`;
+        circle.appendChild(span);
+        }
+        for (let i = 0; i <= 20; i++) {
+        const span = document.createElement('span');
+        span.style = `--i:${i};`;
+        circle2.appendChild(span);
+        }
+    </script>
+</body>
+</html>
