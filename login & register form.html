@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Register Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(0, 0, 53);
+        }
+        .cursor{
+            position: absolute;
+            display: none;
+            background-color: rgba(255, 0, 0, 0.823);
+            box-shadow:0 0 10px red,
+            0 0 20px red,
+            0 0 40px red,
+            0 0 80px red,
+            0 0 150px red;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            /* transform-origin: center; */
+        }
+        .container *{
+            transition: .3s ease-in;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(154, 154, 201, 0.401);
+            padding: 20px;
+            width: 440px;
+            height: 550px;
+            z-index: 5;
+            border-radius: 50px;
+            box-shadow: 0 0 100px rgba(255, 255, 255, 0.578)
+        }
+        .inner-container{
+            display: flex;
+            overflow-x: hidden;
+            height: 280px;
+        }
+        .login-form{
+            margin-right: 100px;
+            margin-left: 50px;
+        }
+        .inner{
+            text-align: center;
+        }
+        .rotate{
+            margin-bottom: 50px;
+        }
+        .rotate button{
+            padding: 8px 25px;
+            border: none;
+            color:white;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: rgb(13, 13, 99,.5);
+            box-shadow: 0 0 10px rgb(13, 13, 99) ;
+            border-radius: 20px !important;
+        }
+        .rotate button:hover{
+            box-shadow: 0 0 10px rgb(13, 13, 99),
+            0 0 20px rgb(13, 13, 99),
+            0 0 40px rgb(13, 13, 99),
+            0 0 80px rgb(13, 13, 99) ;
+        }
+
+        .inner input{
+            width: 300px;
+            border-radius: 20px;
+            border: none;
+            margin: 5px;
+            padding: 10px 20px;
+        }
+        .inner-container .inner button{
+            padding: 10px 50px;
+            margin-top: 30px;
+            border-radius: 20px;
+            border: none;
+            color:white;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgb(207, 8, 8);
+            background-color: rgba(207, 8, 8, 0.5)
+        }
+        .inner-container .inner button:hover{
+            box-shadow: 0 0 10px rgb(207, 8, 8),
+            0 0 20px rgb(207, 8, 8),
+            0 0 40px rgb(207, 8, 8);
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="container">
+        <div class="inner rotate">
+            <button onclick="slidelef()" id="left">Login</button>
+            <button onclick="sliderig()" id="right">Register</button>
+        </div>
+        <div class="inner-container" id="inner-container">
+            <div class="inner login-form" id="login">
+                <input type="email" id="email" placeholder="Email"><br>
+                <input type="password" id="pass" class="pass" placeholder="Password"><br>
+                <button>Login</button>
+            </div>
+            <div class="inner reg-form" id="register">
+                <input type="text" id="name" placeholder="Name"><br>
+                <input type="email" id="email" placeholder="Email"><br>
+                <input type="password" id="pass" class="pass" placeholder="Create Password"><br>
+                <input type="text" id="pass" class="pass" placeholder="Re-Enter Password"><br>
+                <Button>Register</Button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        var cursor = document.querySelector(".cursor");
+        var box = document.querySelector(".container");
+        window.addEventListener("mousemove",(e) =>{
+            const posx = e.clientX;
+            const posy = e.clientY;
+
+                cursor.style = "display:block;";
+                cursor.style.left = posx + "px";
+                cursor.style.top = posy + "px";
+        })
+
+        var slidebox = document.getElementById("inner-container")
+        var login = document.getElementById("login")
+        var register = document.getElementById("register")
+
+        function slidelef(){
+            login.style = "margin-left:50px"
+        }
+        function sliderig(){
+            login.style = "margin-left:-365px"
+        }
+
+    </script>
+</body>
+</html>
