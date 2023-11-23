@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Hamburger</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            overflow: hidden;
+            background-color: rgb(0,0,60);
+        }
+        .innerham{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            border: none;
+            outline: none;
+            flex-direction: column;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .hamburger{
+            display: flex;
+            height: 100vh;
+        }
+        .active .top{
+            width: 41px;
+            rotate: 45deg;
+            margin-bottom: -5px;
+        }
+        .active .bottom{
+            width: 41px;
+            rotate: -45deg;
+            margin-bottom: -5px;
+        }
+        .active .middle{
+            width: 0;
+            margin-bottom: -5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="hamburger">
+        <button class="innerham">
+            <span class="ham top"></span>
+            <span class="ham middle"></span>
+            <span class="ham bottom"></span>
+        </button>
+    </div>
+    <script>
+        var ham = document.querySelector(".innerham");
+        ham.addEventListener("click",() => {
+            var isActive = this.classList.contains("active");
+            if (isActive) {
+                this.classList.remove("active");
+            }
+
+            //Open the clicked panel if it wasn't already open
+            if (!isActive){
+                this.classList.add("active");
+            }
+        })
+    </script>
+</body>
+</html>
