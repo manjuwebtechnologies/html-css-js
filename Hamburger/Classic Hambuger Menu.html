@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Classic Hamburger Menu</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        }
+
+        body {
+        overflow: hidden;
+        background: rgb(0, 0, 60);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        }
+
+        .nav {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .nav div {
+        position: absolute;
+        height: 70px;
+        width: 70px;
+        background-color: white;
+        border-radius: 50%;
+        transition: .4s ease-in-out;
+        }
+
+        .ham .menu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: rgb(0, 0, 60);
+        }
+        .ham .menu i{
+            opacity: 0;
+            transition: .5s ease-in-out;
+        }
+        .ham .menu.active i{
+            opacity: 1 !important;
+        }
+
+        .ham .menu:nth-child(1).active {
+        margin-top: -150px;
+        }
+
+        .ham .menu:nth-child(2).active {
+        margin-top: -50px;
+        margin-left: -150px;
+        }
+
+        .ham .menu:nth-child(3).active {
+        margin-top: -50px;
+        margin-left: 150px;
+        }
+
+        .ham .menu:nth-child(4).active {
+        margin-top: 120px;
+        margin-left: 90px;
+        }
+
+        .ham .menu:nth-child(5).active {
+        margin-top: 120px;
+        margin-left: -90px;
+        }
+
+        .burger div {
+        position: absolute;
+        width: 45px;
+        height: 5px;
+        border-radius: 50px;
+        background-color: rgb(0, 0, 60);
+        z-index: 999;
+        }
+
+        .top {
+        margin-top: 15px;
+        margin-left: 12px;
+        }
+
+        .middle {
+        margin-top: 30px;
+        margin-left: 12px;
+        }
+
+        .bottom {
+        margin-top: 45px;
+        margin-left: 12px;
+        }
+        .top.active {
+        margin-top: 30px;
+        margin-left: 12px;
+        transform: rotate(45deg);
+        }
+
+        .middle.active {
+        margin-top: 30px;
+        margin-left: 30px;
+        width: 1px !important;
+        }
+
+        .bottom.active {
+        margin-top: 30px;
+        margin-left: 12px;
+        transform: rotate(-45deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="burger">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+        </div>
+        <div class="ham" id="ham">
+            <div class="menu"><i class="fa-solid fa-house"></i></div>
+            <div class="menu"><i class="fa-solid fa-address-card"></i></div>
+            <div class="menu"><i class="fa-brands fa-servicestack"></i></div>
+            <div class="menu"><i class="fa-solid fa-address-book"></i></div>
+            <div class="menu"><i class="fa-solid fa-share-nodes"></i></div>
+        </div>
+    </div>
+
+    <script>
+        var menu = document.querySelectorAll(".menu");
+        var hambars = document.querySelectorAll(".burger div");
+        var ham = document.getElementById("ham");
+
+        ham.addEventListener("click", function(){
+            menu.forEach(function(menu){
+                menu.classList.toggle("active");
+            });
+            hambars.forEach(function(hambar){
+                hambar.classList.toggle("active");
+            });
+        })
+        
+    </script>
+</body>
+</html>

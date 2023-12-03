@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+            background: rgb(0, 0, 60);
+        }
+        .innerham{
+            display: flex;
+            background: transparent;
+            border: none;
+            outline: none;
+            flex-direction: column;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .hamburger{
+            display: flex;
+            height: 100vh;
+
+        }
+        .ham{
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            height: 5px;
+            margin-bottom: 10px;
+            transition: .3s ease-in-out;
+        }
+        .top{
+            width: 10px;
+        }
+        .middle{
+            width: 40px;
+        }
+        .bottom{
+            width: 25px;
+        }
+        .active .top{
+            
+            width: 40px;
+        }
+        .active .bottom{
+            width: 40px;
+        }
+        .active .middle{
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger">
+        <button class="innerham">
+            <span class="ham top"></span>
+            <span class="ham middle"></span>
+            <span class="ham bottom"></span>
+        </button>
+    </div>
+
+    <script>
+        var ham = document.querySelector(".innerham");
+        
+        ham.addEventListener("click", function(){
+            var isActive = this.classList.contains("active");
+            if(isActive) {
+                this.classList.remove("active");
+            }
+    
+            // Open the clicked panel if it wasn't already open
+            if (!isActive) {
+            this.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>

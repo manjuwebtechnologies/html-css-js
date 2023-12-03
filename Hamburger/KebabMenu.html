@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebab Mobile Menu</title>
+    <style>
+                *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+            background: rgb(0, 0, 60);
+        }
+        .innerham{
+            display: flex;
+            background: transparent;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            outline: none;
+            /* flex-direction: column; */
+            position: fixed;
+            top:50%;
+            left: 50%;
+            transform-origin:top;
+            transform: translate(-50%,-50%);
+            transition: .4s ease-in-out;
+        }
+        .hamburger{
+            display: flex;
+            height: 100vh;
+
+        }
+        .ham{
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            height: 10px;
+            width: 10px;
+            margin: 5px;
+            transition: .3s ease-in-out;
+        }
+        .innerham:hover .top{
+            transform: translateX(-10px);
+        }
+        .innerham:hover .bottom{
+            transform: translateX(10px);
+        }
+        .innerham.active{
+            /* flex-direction: column; */
+            transform: rotate(90deg);
+        }
+        /* .innerham.active:hover .top{
+            transform: translateY(-10px);
+        }
+        .innerham.active:hover .bottom{
+            transform: translateY(10px);
+        } */
+    </style>
+</head>
+<body>
+    <div class="hamburger">
+        <button class="innerham">
+            <div class="ham top"></div>
+            <div class="ham middle"></div>
+            <div class="ham bottom"></div>
+        </button>
+    </div>
+
+    <script>
+        var ham = document.querySelector(".innerham");
+        
+        ham.addEventListener("click", function(){
+            ham.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
