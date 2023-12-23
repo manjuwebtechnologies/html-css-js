@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator With Glassmorphism Effect</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            Justify-content: center;
+            align-items: center;
+            background-color: rgb(47,39,70);
+            height: 100vh;
+        }
+        .container{
+            width:360px;
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4496);
+            overflow: hidden;
+        }
+        .container::before{
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.168);
+            box-shadow: 0 0 50px 50px  rgba(255, 0, 0, 0.168);
+
+        }
+        .container::after{
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 140, 0.168);
+            box-shadow: 0 0 50px 50px  rgba(255, 0, 140, 0.168);
+
+        }
+        .form-container{
+            height: 80%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container input{
+            height: auto;
+            width: 250px;
+            padding: 10px;
+            border-radius: 10px;
+            outline: none;
+            margin-bottom: 40px;
+            border: none;
+            margin-top: 120px;
+        }
+        .form-container h2{
+            color: white;
+            margin-bottom: 20px;
+        }
+        .form-container h3{
+            color: white;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <input id="age-input" type="date">
+            <h2>Age:</h2>
+            <h3 id="age">xx Years </h3>
+        </div>
+    </div>
+    <script>
+        const ageInput = document.getElementById("age-input");
+        const age = document.getElementById("age");
+
+        ageInput.addEventListener("input", function() {
+            const birthDate = new Date(ageInput.value);
+            const currentDate = new Date();
+
+            let years = currentDate.getFullYear() - birthDate.getFullYear();
+            let months = currentDate.getMonth() - birthDate.getMonth();
+            let days = currentDate.getDate() - birthDate.getDate();
+
+            if (months < 0 || (months === 0 && currentDate.getDate() < birthDate.getDate())) {
+                years--;
+                months += 12;
+            }
+
+            if (days < 0) {
+                months--;
+                const tempDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+                days += tempDate.getDate();
+            }
+
+            age.textContent = `${years} Years, ${months} Months, ${days} Days`;
+});
+
+
+    </script>
+</body>
+</html>
