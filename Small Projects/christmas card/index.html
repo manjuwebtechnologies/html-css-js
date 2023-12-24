@@ -1,0 +1,140 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Cookie&display=swap" rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+     body {
+      width: 100%;
+      height: calc(100vh);
+      perspective: 1200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: url('bg.jpg');
+      background-size: cover;
+    }
+
+    .card {
+      transform-style: preserve-3d;
+      position: relative;
+      height: 400px;
+      margin-left: -250px;
+      cursor: pointer;
+      transition: .7s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Cookie', serif;
+      margin-left: 100px;
+      transform: translateY(100px);
+      font-size: 50px;
+      margin-top: 40px;
+      color: white;
+    }
+
+    h5 {
+      font-family: 'Cookie', serif;
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    img{
+      margin-top: 60px;
+      width: 70px;
+      margin-left: 30px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 0 10px #b9383a;
+      padding: 7px;
+      transform: scaleX(-1);
+    }
+    .text{
+        margin-top: 20px;
+        transform: scaleX(-1);
+        color: white;
+        margin-left: 30px;
+    }
+
+    .page, .front {
+      background: url('front.jpg') no-repeat center darkred;
+      background-size: cover;
+    }
+    /* .back{
+        background: url('back.jpg') no-repeat center darkred;
+        background-size: cover;
+    } */
+
+    .message {
+      color: #900909;
+    }
+    .back{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .front, .back, .page {
+      transform-style: preserve-3d;
+      transform-origin: left center;
+      transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+      position: absolute;
+      width: 300px;
+      height: 100%;
+      top: 0; 
+      left: 0;
+      background-color: #F7F7F7;
+      padding: 40px;
+    }
+
+    .card:hover{
+        margin-left: 0;
+    }
+    .card:hover .front {
+      transform: rotateY(-140deg);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .card:hover .page {
+      transform: rotateY(-139deg);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .card:hover .back {
+      transform: rotateY(-30deg);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="back">
+          <div class="message">
+            <h5>Dear Friends,</h5>
+            <p>'May your Christmas be wrapped in warmth, illuminated with joy, and filled with the love of family and friends. Wishing you a season sprinkled with laughter and moments to treasure!' </p>
+            <h5 class="cookie">Abhay Pratap Singh Rathore</h5>
+          </div>
+      </div>
+
+      <div class="page">
+          <img src="logo.png">
+          <div class="text">
+            <h3>Manju Web Technologies</h3>
+            <h4>Converting Ideas To <br>Digital Reality</h4>
+          </div>
+      </div>
+      <div class="front">
+          <h1>Merry<br> Christmas!</h1>
+      </div>
+    </div>
+  </body>
+</html>
